@@ -1,0 +1,28 @@
+﻿.card {
+    background-color: grey;
+    color: white;
+    font-size: 3em;
+    padding: 15px;
+    margin: 15px;
+    position: relative;
+}
+
+.deletebutton {
+    background-color: white;
+    color: red;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: .75em;
+    text-align: center;
+    margin: auto auto;
+    box-shadow: 2px 2px 5px;
+}
+
+.form_class {
+    margin: 2em;
+    padding: 1em;
+}

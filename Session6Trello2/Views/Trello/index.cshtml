@@ -1,0 +1,53 @@
+﻿@model List<Session6Trello2.Models.Card>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+
+    <script>
+        function whateverthenameis(id) {
+            websiteToGoTo = "/trello/deletecard?id=" + id;
+            window.location.href = websiteToGoTo;
+        }
+        function initialize() {
+            $("#mycards").sortable();
+        }
+
+        $(initialize);
+    </script>
+</head>
+<body>
+    <div class="row" id="mycards">
+        @foreach (var card in Model)
+        {
+        <div class="col-md-3">
+            <div class="card">
+                @card.Title
+                <div onclick="whateverthenameis(@card.Id)" class="deletebutton">x</div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="row">
+        <div class="form_class">
+            <form action="/trello/addcard" method="GET">
+                <input type="text" name="title" />
+                <button class="btn btn-primary">Add!</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
